@@ -1,0 +1,44 @@
+{
+  "name": "常用工具类插件",
+  "description": "实现常用功能：1、早晚会任务列表是否执行列自动打勾；2、...",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "49.0.0.0",
+  "browser_action": {
+    "default_icon": "assets/images/check.png",
+    "default_title": ""
+  },
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "bookmarks",
+    "webRequest",
+    "storage",
+    "contextMenus",
+    "tabs",
+    "history",
+    "activeTab",
+    "http://xian.suntekcorps.com/"
+  ],
+  "icons": {
+    "48": "assets/images/check.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://meeting.suntekcorps.com/*"
+      ],
+      "css": [
+        "assets/css/main.css"
+      ],
+      "js": [
+        "assets/lib/jquery.min.js",
+        "background/background.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "assets/*"
+  ]
+}
